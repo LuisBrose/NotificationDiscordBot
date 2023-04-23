@@ -7,9 +7,9 @@ from discord.ext import commands
 
 # Message Data from config
 message_data = discord.Message
-custom_response = "Hi"
+custom_response = ""
 is_configured = False
-interval = "seconds=10"
+interval = ""
 
 
 async def send_message(message, response):
@@ -32,7 +32,7 @@ def run_discord_bot():
         await schedule_ping()
 
     @bot.tree.command()
-    async def bump(interaction: discord.Interaction):
+    async def bump(interaction: discord.Interaction):   # /bump to keep the bot and badge active
         await interaction.response.send_message("bumpala", ephemeral=True)
 
     @bot.event
@@ -91,7 +91,7 @@ def run_discord_bot():
                 then = now + timedelta(**cvargs)
             except Exception as e:
                 print(e)
-                then = now + timedelta(minutes=1)
+                then = now + timedelta(days=29)  # default to get notified for the badge
             wait_time = (then - now).total_seconds()
 
             await asyncio.sleep(wait_time)
