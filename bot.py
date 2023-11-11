@@ -52,8 +52,8 @@ def run_discord_bot():
             if len(param_array) < 3:
                 await send_message(
                     message,
-                    "use: ?configure [message] [interval]    \nto set up this channel for notifications"
-                    "\nan example would be: ?configure HI seconds=10,minutes=5,hours=10,days=1",
+                    "use: ?configure ['message'] [interval]    \nto set up this channel for notifications"
+                    "\nan example would be: ?configure 'hello World!' seconds=10,minutes=5,hours=10,days=1",
                 )
                 return
 
